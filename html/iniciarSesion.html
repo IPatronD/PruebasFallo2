@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Colitas Felices - Iniciar Sesión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/styleAuth.css">
+    <link rel="icon" href="../img/logo/Logo.png" type="image/png">
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../img/logo/Logo.png" alt="Logo Colitas Felices">
+                </a>
+            </div>
+
+            <!-- Botón hamburguesa (solo visible en móvil) -->
+            <button class="menu-hamburguesa" aria-label="Menú">
+                <span class="barra-hamburguesa"></span>
+                <span class="barra-hamburguesa"></span>
+                <span class="barra-hamburguesa"></span>
+            </button>
+
+            <!-- Menú normal (visible en desktop) -->
+            <div class="menu">
+                <a href="./nosotros.html">Nosotros</a>
+                <a href="./adopta.html">Adopta</a>
+                <a href="./dudas.html">Dudas</a>
+                <a href="./dona.html">Dona</a>
+                <a href="./contacto.html">Contacto</a>
+
+                <!-- Menú de cuenta (se actualiza automáticamente) -->
+                <div class="submenu">
+                    <a href="#" class="submenu-trigger">Mi Cuenta <span class="submenu-icon">▾</span></a>
+                    <div class="submenu-opciones">
+                        <!-- Contenido dinámico (se llena con auth-state.js) -->
+                        <a href="./iniciarSesion.html">Iniciar Sesión</a>
+                        <a href="./registrate.html">Registrate</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="auth-container">
+        <h2>Iniciar Sesión</h2>
+        <form id="loginForm">
+            <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+
+            <div class="password-container">
+                <input type="password" id="password" name="password" placeholder="Contraseña" minlength="6" required>
+                <button type="button" class="toggle-password" aria-label="Mostrar contraseña">
+                    <svg class="icon-visible" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10z" />
+                        <path d="M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
+                    </svg>
+                    <svg class="icon-hidden" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                        <path
+                            d="M2 4.27L3.28 3 21 20.73 19.73 22l-3.06-3.06C15.25 19.3 13.67 19.5 12 19.5 7 19.5 2.73 16.39 1 12c.71-1.79 1.84-3.38 3.24-4.64L2 4.27zM12 7c.62 0 1.2.12 1.75.32l-1.57 1.57a3 3 0 0 0-3.44 3.44l-2.3 2.3C6.04 13.52 6 13.26 6 13a6 6 0 0 1 6-6zM12 17c-.26 0-.52-.02-.77-.06l-1.69-1.69A3 3 0 0 0 12 15a3 3 0 0 0 3-3c0-.37-.07-.73-.19-1.06l2.15-2.15C18.22 9.73 19.37 10.8 20.28 12c-1.73 4.39-6 7.5-11 7.5z" />
+                    </svg>
+                </button>
+            </div>
+
+            <button type="submit">Ingresar</button>
+            <p id="error-message" class="error-message"></p>
+        </form>
+        <p class="auth-link">¿No tienes cuenta? <a href="./registrate.html">Regístrate aquí</a></p>
+    </div>
+
+    <script>
+        // Toggle para mostrar/ocultar contraseña
+        document.querySelector('.toggle-password').addEventListener('click', function () {
+            const passwordInput = document.getElementById('password');
+            const isPassword = passwordInput.getAttribute('type') === 'password';
+
+            passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+            this.querySelector('.icon-visible').style.display = isPassword ? 'none' : 'inline';
+            this.querySelector('.icon-hidden').style.display = isPassword ? 'inline' : 'none';
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-contenedor">
+            <div class="footer-logo">
+                <h2>Colitas<span>Felices</span></h2>
+            </div>
+            <div class="footer-links">
+                <a href="./contacto.html">Contacto</a>
+                <a href="./AvisoLegal.html">Aviso Legal</a>
+                <a href="./PoliticaPrivacidad.html">Política de Privacidad</a>
+                <a href="./PoliticaCookies.html">Política de Cookies</a>
+                <a href="./contacto.html">Canal de Denuncias</a>
+                <a href="./mapaSitioWeb.html">Mapa del Sitio Web</a>
+            </div>
+            <div class="footer-social">
+                <h3>Síguenos</h3>
+                <a href="https://www.instagram.com" target="_blank"><img
+                        src="https://cdn-icons-png.flaticon.com/128/1384/1384031.png" alt="Instagram"></a>
+                <a href="https://www.facebook.com" target="_blank"><img
+                        src="https://cdn-icons-png.flaticon.com/24/2111/2111392.png" alt="Facebook"></a>
+                <a href="https://www.youtube.com" target="_blank"><img
+                        src="https://cdn-icons-png.flaticon.com/128/1077/1077046.png" alt="YouTube"></a>
+                <a href="https://tiktok.com" target="_blank"><img
+                        src="https://cdn-icons-png.flaticon.com/128/3046/3046125.png" alt="TikTok"></a>
+            </div>
+            <div class="footer-contact">
+                <h3>Contacto</h3>
+                <p><strong>(044) 456-7890</strong></p>
+                <p>Calle Amor Animal #123, Ciudad Trujillo</p>
+                <p><a href="mailto:contacto@colitasFelices.org">contacto@colitasFelices.org</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Web creada por <strong>Ariana Fernandez, David García, Diego Cabanillas y Paula Rodríguez</strong></p>
+        </div>
+    </footer>
+
+    <script>
+        // Función de validación y redirección
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();  // Prevenir el comportamiento por defecto (enviar el formulario)
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Validación de correo electrónico y contraseña
+            const errorMessage = document.getElementById('error-message');
+            errorMessage.textContent = '';  // Limpiar mensaje de error
+
+            if (!email || !password) {
+                errorMessage.textContent = 'Por favor, complete todos los campos.';
+                return;
+            }
+
+            // Aquí puedes agregar más validaciones, como la verificación de formato del email
+
+            // Simulación de una validación exitosa (esto puedes reemplazarlo con una validación real con backend)
+            const isValid = email === "usuario@ejemplo.com" && password === "contraseña123"; // Ejemplo de credenciales
+
+            if (isValid) {
+                // Redirigir a la página "bienvenidos.html"
+                window.location.href = "./bienvenidos.html";  // Redirección
+            } else {
+                // Mostrar mensaje de error si las credenciales son incorrectas
+                errorMessage.textContent = 'Correo o contraseña incorrectos. Intenta de nuevo.';
+            }
+        });
+    </script>
+    <script src="../main.js"></script>
+</body>
+
+</html>
